@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>Mapa</title> 
+        <link rel="stylesheet" href="mapa.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><!--jquery externo -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://openlayers.org/en/v4.6.4/css/ol.css" type="text/css">
+        <script src="https://openlayers.org/en/v4.6.4/build/ol.js"></script><!--openlayer externo -->
+        <script src="mapa.js"></script>
+        <link type="image/gif"  rel="icon" href="location-map-flat.png">
+    </head>
+    <body style="margin: 0px;">
+        <div id="map">
+            <div style="z-index:99999;position:absolute;">
+                <div id="menu">
+                    <div id="menu-btn" class="btn-group">
+                            <!--<button class="btn-padrao">CAMADAS</button>
+                            <button class="btn-padrao">MAPAS</button>-->
+                            <div class="btn">CAMADAS</div>
+                            <div id="btn-lupa"class="btn">LUPA</div>
+                            <div id="btn-desenhar" class="btn">DESENHAR</div>
+                            <div id="btn-mapas" class="btn">MAPAS</div>
+                    </div>
+                    <div id="context"hidden ></div>
+                    <div id="listaMapa" hidden >
+                        <h2>Mapas de fundo</h2>
+                        <hr />
+                        <div class="btn btn-block osm">OSM</div>
+                        <div class="btn btn-block mapafundo">MAPAFUNDO</div>
+                        <div class="btn btn-block starmen">STARMEN</div>
+                    </div>
+                    <div id="listaDesenho" hidden >
+                        <h2>FORMAS de POLIGONO</h2>
+                        <hr />
+                        <!--<div class="btn btn-block ">BOX</div>
+                        <div class="btn btn-block ">ABSTRATO</div>
+                        <div class="btn btn-block ">MULTIPLO</div> -->
+                        <ul class="nav nav-tabs">
+                            <li ><a data-toggle="tab" class="nav-box" >BOX</a></li>
+                            <li><a data-toggle="tab" class="nav-abstrato">ABSTRATO</a></li>
+                            <li><a data-toggle="tab" class="nav-multiplo" >MULTIPLO</a></li>
+                            <li class="active"><a data-toggle="tab" class="nav-nenhum">NENHUM</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="permalink">
+                    <span id="txtZoom"></span><br />
+                    <span hidden id="posicaoMouse"></span>
+                    <span id="controlMouse"></span>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
