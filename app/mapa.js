@@ -98,7 +98,7 @@ var draw = new ol.interaction.Draw({
         visible:true
     });
 //controles
-controle = new ol.control.MousePosition({
+var controle = new ol.control.MousePosition({
             projection:"EPSG:4326",
             target:"posicaoMouse"
         });
