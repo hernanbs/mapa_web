@@ -2,7 +2,7 @@
 //var mclic = require('../module_click/module_click.js');
 // mclic = mclic.init(ol);
 var ol = require('openlayers');
-var mlayer = require("../modulo_layer.js");
+var mlayer = require("./modulo_layer.js");
 
 var modulo_mapa = ( function (ol, mlayer) {
     var zoomSlider = new ol.control.ZoomSlider();
