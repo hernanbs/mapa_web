@@ -7,3 +7,6 @@ import * as mutationType from './mutationType'
 export function changeMap ({commit}, newMap) {
   commit(mutationType.CHANGE_MAP, newMap)
 }
+export function changeBaseMap ({commit}, newLayer) {
+  commit(mutationType.CHANGE_BASEMAP, newLayer)
+}

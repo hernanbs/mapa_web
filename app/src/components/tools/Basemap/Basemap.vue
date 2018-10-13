@@ -2,28 +2,78 @@
   <div>
     <h4>Mapas de fundo disponíveis</h4>
     <hr noshade/>
-    <div @click="clicando()" class="btn btn-outline-success">Basemap</div>
-    <div class="btn btn-outline-success">Basemap</div>
+    <div class="btn-group-vertical">
+      <div @click="getNewBaseMap('osm')" 
+      :class="[mapSelected === 'osm' ? 'active ':'' ,'btn','btn-outline-success']">OpenStreetMap</div>
+      <div @click="getNewBaseMap('starmen')" 
+      :class="[mapSelected === 'starmen' ? 'active ':'' ,'btn','btn-outline-success']">Negrito</div>
+      <div @click="getNewBaseMap('world')" 
+      :class="[mapSelected === 'world' ? 'active ':'' ,'btn','btn-outline-success']">World</div>
+      <div @click="getNewBaseMap('none')" 
+      :class="[mapSelected === 'none' ? 'active ':'' ,'btn','btn-outline-success']"  >Nada</div>
+    </div>
   </div>
 </template>
 <script>
 
 import { mapState, mapActions } from 'vuex'
 import configuration from './../../../config'
+import ol from 'openlayers'
 
 export default {
   name: 'basemap',
   data: () => ({
+    config: configuration,
+    mapSelected: undefined,
+    sr_osm: undefined,
+    sr_starmen: undefined,
+    sr_World: undefined
   }),
   computed: {
-    ...mapState(['map'])
+    ...mapState(['map','basemap'])
   },
   methods: {
-    clicando () {
+    clicando (item) {
       console.log(this)
       console.log(this.map)
+      console.log(item)
     },
-    ...mapActions(['changeMap'])
+    getNewBaseMap(option){
+      this.mapSelected = option
+      console.log(option)
+      console.log('base ' + this.basemap)
+      console.log(this.basemap)
+      switch(option){
+        case 'starmen':
+          this.basemap.setSource(this.sr_starmen)
+          // this.changeBaseMap(this.sr_starmen)
+          break
+        case 'osm':
+          this.basemap.setSource(this.sr_osm)
+          // this.changeBaseMap(this.sr_osm)
+          break
+        case 'world':
+          this.basemap.setSource(this.sr_World)
+          // this.changeBaseMap(this.sr_World)
+          break
+        case 'none':
+          this.basemap.setSource(undefined)
+          break
+      }
+    },
+    ...mapActions(['changeMap','changeBaseMap'])
+  },
+  mounted() {
+   
+    this.sr_osm = new ol.source.OSM(),
+    this.sr_starmen = new ol.source.Stamen({
+      layer: 'toner'
+    }),
+    this.sr_World = new ol.source.TileArcGISRest({
+      ratio: 1,
+      params: {},
+      url: this.config.url.arqgis.WORLD
+    })
   }
 }
 </script>

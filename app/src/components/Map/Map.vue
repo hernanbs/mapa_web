@@ -14,6 +14,7 @@ export default {
   name: 'map',
   data: () => ({
     tempMap: {},
+    tempBaseMap:{},
     mapReady: false,
     controls: undefined,
     mousePositionControl: undefined,
@@ -23,15 +24,14 @@ export default {
     // brasilia = "lat -15° 46' 47'' ,  long -47° 55' 47''"
     coordInitial: [-47.9292, -15.7801],
     projectionInitial: 'EPSG:4326',
-    basemap: undefined,
     sr_World: undefined,
     config: configuration
   }),
   computed: {
-    ...mapState(['map'])
+    ...mapState(['map','basemap'])
   },
   methods: {
-    ...mapActions(['changeMap'])
+    ...mapActions(['changeMap','changeBaseMap'])
   },
   mounted () {
     this.mapReady = true
@@ -56,10 +56,11 @@ export default {
       params: {},
       url: this.config.url.arqgis.WORLD
     })
-    this.basemap = new ol.layer.Tile({
+    this.tempBaseMap = new ol.layer.Tile({
       source: this.sr_World,
       visible: true
     })
+    this.changeBaseMap(this.tempBaseMap)
     this.tempMap = new ol.Map({
       controls: this.controls,
       layers: [this.basemap],
