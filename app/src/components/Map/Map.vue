@@ -7,12 +7,14 @@
 
 import ol from 'openlayers'
 import configuration from './../../config'
+import { mapState, mapActions } from 'vuex'
+// import store from '@/store'
 
 export default {
   name: 'map',
   data: () => ({
+    tempMap: {},
     mapReady: false,
-    map: undefined,
     controls: undefined,
     mousePositionControl: undefined,
     rotateControl: undefined,
@@ -25,6 +27,12 @@ export default {
     sr_World: undefined,
     config: configuration
   }),
+  computed: {
+    ...mapState(['map'])
+  },
+  methods: {
+    ...mapActions(['changeMap'])
+  },
   mounted () {
     this.mapReady = true
     this.mousePositionControl = new ol.control.MousePosition({
@@ -52,14 +60,14 @@ export default {
       source: this.sr_World,
       visible: true
     })
-    this.map = new ol.Map({
+    this.tempMap = new ol.Map({
       controls: this.controls,
       layers: [this.basemap],
       target: 'map',
       view: this.view
     })
+    this.changeMap(this.tempMap)
     console.log(this)
-    console.log('fim')
   }
 }
 </script>

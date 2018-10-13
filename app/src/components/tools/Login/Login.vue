@@ -18,10 +18,8 @@
 export default {
   name: 'login',
   data: () => ({
-    
-  }),
+  })
 }
 </script>
-<style lang="">
-  
+<style lang="stylus">
 </style>

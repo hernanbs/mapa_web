@@ -6,7 +6,7 @@
       B
       C
       D
-      E 
+      E
       F
       G1
     </pre>
@@ -18,10 +18,8 @@
 export default {
   name: 'drawgeo',
   data: () => ({
-    
-  }),
+  })
 }
 </script>
-<style lang="">
-  
+<style lang="stylus">
 </style>

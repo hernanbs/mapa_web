@@ -8,19 +8,24 @@
 </template>
 <script>
 
+import { mapState, mapActions } from 'vuex'
+import configuration from './../../../config'
+
 export default {
   name: 'basemap',
   data: () => ({
-    
   }),
-  methods:{
-    clicando(){
+  computed: {
+    ...mapState(['map'])
+  },
+  methods: {
+    clicando () {
       console.log(this)
-    }
+      console.log(this.map)
+    },
+    ...mapActions(['changeMap'])
   }
-
 }
 </script>
-<style lang="">
-  
+<style lang="stylus">
 </style>

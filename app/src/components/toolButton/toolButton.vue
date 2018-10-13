@@ -16,56 +16,54 @@
   </div>
 </template>
 <script>
-import {components, tools } from './toolButton'
+
+import { components, tools } from './toolButton'
+
 export default {
   name: 'toolbutton',
-  props: ['map'],
+  // props: ['map'],
   data: () => ({
     tools: tools,
-    toolOpen:null,
-    toolOpenContent:undefined,
+    toolOpen: null,
+    toolOpenContent: undefined
   }),
-  component:  {
+  component: {
     ...components()
   },
   methods: {
-    onClickTool(index){
+    onClickTool (index) {
       if (this.toolOpen !== index) {
         this.toolOpen = index
-        
       } else {
         this.toolOpen = null
       }
-      console.log("mapao")
-      console.log(this.map)
     }
-
   }
 }
 </script>
 <style lang="stylus" >
+
 div.grouptools
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  z-index: 1;
+  position absolute
+  top 5px
+  right 5px
+  z-index 1
 div.btntools
-  background: white;
-  
+  background white
 
 div.tool
-  background: #ffffffbf;
-  max-width: 65vw;
-  min-width: 35vw;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  padding-top: 7vw;
-  padding-bottom: 3vh;
-  max-height: 70vh;
-  overflow: auto;
-  border-top-left-radius: 30px;
-  padding-right: 3vw;
-  padding-left: 1vw;
+  background #ffffffbf
+  max-width 65vw
+  min-width 35vw
+  position absolute
+  top 5px
+  right 5px
+  padding-top 7vw
+  padding-bottom 3vh
+  max-height 70vh
+  overflow auto
+  border-top-left-radius 30px
+  padding-right 3vw
+  padding-left 1vw
 
 </style>
