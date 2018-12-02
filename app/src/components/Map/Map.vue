@@ -81,7 +81,7 @@ export default {
     this.controls = new ol.control.defaults({attribution: false}).extend([
       this.mousePositionControl,
       this.zoomSliderControl,
-      this.rotateControl,
+      this.rotateControl
       // this.zoomControl,
       // new ol.control.Attribution({ collapsible: false, collapsed: false })
     ])

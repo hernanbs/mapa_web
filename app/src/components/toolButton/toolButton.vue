@@ -32,6 +32,8 @@ export default {
   },
   methods: {
     onClickTool (index) {
+      console.log('um teste')
+      console.log(this.tools)
       if (this.toolOpen !== index) {
         this.toolOpen = index
       } else {

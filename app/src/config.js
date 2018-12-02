@@ -17,13 +17,12 @@ export default {
       // CCAR:BCIM_Outros_Limites_Oficiais_L&
       // CCAR:BC250_Unidade_Federacao_A&
       // CCAR:BC250_Municipio_A&
-      // CCAR:BC250_Municipio_A&
       // CCAR:BC250_Pais_A&
       // CGEO:C02_limite_estadual_1911&
     },
     serpro: {
       TOPOMAP: 'https://dev-sterna.estaleiro.serpro.gov.br/geo/api/tiles/{z}/{y}/{x}.png'
     },
-    ibge: 'http://www.geoservicos.ibge.gov.br/geoserver/web/'
+    ibge: 'http://www.geoservicos.ibge.gov.br/geoserver/'
   }
 }

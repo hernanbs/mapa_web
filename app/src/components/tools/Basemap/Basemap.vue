@@ -58,7 +58,7 @@ export default {
         case 'topomap':
           this.basemap.setSource(this.sr_TopoMap)
           // this.changeBaseMap(this.sr_osm)
-          break        
+          break
         case 'world':
           this.basemap.setSource(this.sr_World)
           // this.changeBaseMap(this.sr_World)
@@ -82,7 +82,8 @@ export default {
     })
     this.sr_TopoMap = new ol.source.XYZ({
       url: this.config.url.serpro.TOPOMAP,
-      attributions: 'Serpro'  //Errado, necessario mudar modo de carregar basemap e seu tipo de tilelayer
+      attributions: 'Serpro'
+      // Errado, necessario mudar modo de carregar basemap e seu tipo de tilelayer
     })
   }
 }
