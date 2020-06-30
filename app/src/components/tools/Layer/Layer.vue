@@ -21,11 +21,11 @@ export default {
   name: 'layer',
   data: () => ({
     config: configuration,
-    //a: list,
+    // a: list,
     sr_camadas: undefined,
     camadasLigadas: undefined,
     layerCollection: [],
-    list: layerList,
+    list: layerList
   }),
   computed: {
     ...mapState(['map', 'basemap'])
@@ -40,10 +40,10 @@ export default {
         })
         this.layerCollection.push(new ol.layer.Tile({
           source: source,
-          visible: layerList[item].defaultVisible,
+          visible: layerList[item].defaultVisible
         }))
       }
-      for (let i=0; i < this.layerCollection.length; i++) {
+      for (let i = 0; i < this.layerCollection.length; i++) {
         this.map.addLayer(this.layerCollection[i])
       }
     },
