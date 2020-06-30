@@ -1,4 +1,4 @@
-# Aplicação web com mapa dinamico com várias funcionalidades
+# Aplicação web com mapa dinamico com várias funcionalidades.
 ***
 Itens usados:
 
