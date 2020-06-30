@@ -1,7 +1,6 @@
 #!/bin/bash
- 
-#tenho que mudar o if
-if ["$(id -u)" -eq "0"];
+
+if [ `id -u` -eq 0 ];
 then
  	echo 'Executando como root.'
 else
@@ -10,5 +9,7 @@ else
 fi
 
 apt update
-apt install nginx
-
+apt install -y nginx
+PATH=$(pwd)/../app
+echo $PATH
+cp $PATH/* /var/www/html/
